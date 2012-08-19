@@ -2,7 +2,7 @@
 Pystache
 ========
 
-.. image:: https://s3.amazonaws.com/webdev_bucket/pystache.png
+.. image:: https://s3.amazonaws.com/webdev_bucket/pystache_custom.png
 
 Pystache_ is a Python implementation of Mustache_.
 Mustache is a framework-agnostic, logic-free templating system inspired
@@ -48,8 +48,8 @@ Install It
 
 ::
 
-    pip install pystache
-    pystache-test
+    pip install pystache_custom
+    pystache_custom-test
 
 To install and test from source (e.g. from GitHub), see the Develop section.
 
@@ -59,8 +59,8 @@ Use It
 
 ::
 
-    >>> import pystache
-    >>> print pystache.render('Hi {{person}}!', {'person': 'Mom'})
+    >>> import pystache_custom
+    >>> print pystache_custom.render('Hi {{person}}!', {'person': 'Mom'})
     Hi Mom!
 
 You can also create dedicated view classes to hold your view logic.
@@ -74,7 +74,7 @@ Here's your view class (in examples/readme.py)::
 
 Like so::
 
-    >>> from pystache.tests.examples.readme import SayHello
+    >>> from pystache_custom.tests.examples.readme import SayHello
     >>> hello = SayHello()
 
 Then your template, say_hello.mustache (in the same directory by default
@@ -84,7 +84,7 @@ as your class definition)::
 
 Pull it together::
 
-    >>> renderer = pystache.Renderer()
+    >>> renderer = pystache_custom.Renderer()
     >>> print renderer.render(hello)
     Hello, Pizza!
 
@@ -150,7 +150,7 @@ Develop
 
 To test from a source distribution (without installing)-- ::
 
-    python test_pystache.py
+    python test_pystache_custom.py
 
 To test Pystache with multiple versions of Python (with a single command!),
 you can use tox_: ::
@@ -176,13 +176,13 @@ is present.  Otherwise, it parses the json files.  To install PyYAML-- ::
 To run a subset of the tests, you can use nose_: ::
 
     pip install nose
-    nosetests --tests pystache/tests/test_context.py:GetValueTests.test_dictionary__key_present
+    nosetests --tests pystache_custom/tests/test_context.py:GetValueTests.test_dictionary__key_present
 
 **Running Pystache from source with Python 3.**  Pystache is written in
 Python 2 and must be converted with 2to3_ prior to running under Python 3.
 The installation process (and tox) do this conversion automatically.
 
-To ``import pystache`` from a source distribution while using Python 3,
+To ``import pystache_custom`` from a source distribution while using Python 3,
 be sure that you are importing from a directory containing a converted
 version (e.g. from your site-packages directory after manually installing)
 and not from the original source directory.  Otherwise, you will get a
@@ -203,7 +203,7 @@ Authors
 ::
 
     >>> context = { 'author': 'Chris Wanstrath', 'maintainer': 'Chris Jerdonek' }
-    >>> print pystache.render("Author: {{author}}\nMaintainer: {{maintainer}}", context)
+    >>> print pystache_custom.render("Author: {{author}}\nMaintainer: {{maintainer}}", context)
     Author: Chris Wanstrath
     Maintainer: Chris Jerdonek
 
@@ -215,19 +215,19 @@ Authors
 .. _Distribute: http://pypi.python.org/pypi/distribute
 .. _et: http://www.ivan.fomichev.name/2008/05/erlang-template-engine-prototype.html
 .. _json: http://docs.python.org/library/json.html
-.. _mailing list: http://librelist.com/browser/pystache/
+.. _mailing list: http://librelist.com/browser/pystache_custom/
 .. _Mustache: http://mustache.github.com/
 .. _Mustache spec: https://github.com/mustache/spec
 .. _mustache(5): http://mustache.github.com/mustache.5.html
 .. _nose: http://somethingaboutorange.com/mrl/projects/nose/0.11.1/testing.html
 .. _only unicode strings: http://docs.python.org/howto/unicode.html#tips-for-writing-unicode-aware-programs
-.. _PyPI: http://pypi.python.org/pypi/pystache
-.. _Pystache: https://github.com/defunkt/pystache
+.. _PyPI: http://pypi.python.org/pypi/pystache_custom
+.. _Pystache: https://github.com/defunkt/pystache_custom
 .. _PyYAML: http://pypi.python.org/pypi/PyYAML
-.. _Renderer: https://github.com/defunkt/pystache/blob/master/pystache/renderer.py
+.. _Renderer: https://github.com/defunkt/pystache_custom/blob/master/pystache_custom/renderer.py
 .. _semantically versioned: http://semver.org
 .. _simplejson: http://pypi.python.org/pypi/simplejson/
-.. _TemplateSpec: https://github.com/defunkt/pystache/blob/master/pystache/template_spec.py
+.. _TemplateSpec: https://github.com/defunkt/pystache_custom/blob/master/pystache_custom/template_spec.py
 .. _test: http://packages.python.org/distribute/setuptools.html#test
 .. _tox: http://pypi.python.org/pypi/tox
 .. _version 1.1.2: https://github.com/mustache/spec/tree/v1.1.2

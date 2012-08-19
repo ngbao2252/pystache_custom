@@ -9,7 +9,7 @@ to release a new version of Pystache.
 
 (1) Push to PyPI.  To release a new version of Pystache to PyPI--
 
-    http://pypi.python.org/pypi/pystache
+    http://pypi.python.org/pypi/pystache_custom_custom
 
 create a PyPI user account if you do not already have one.  The user account
 will need permissions to push to PyPI.  A current "Package Index Owner" of
@@ -72,7 +72,7 @@ else:
 # print("Using: version %s of %s" % (repr(dist.__version__), repr(dist)))
 
 
-VERSION = '0.5.2'  # Also change in pystache/__init__.py.
+VERSION = '0.5.2'  # Also change in pystache_custom_custom/__init__.py.
 
 HISTORY_PATH = 'HISTORY.rst'
 LICENSE_PATH = 'LICENSE'
@@ -170,13 +170,13 @@ INSTALL_REQUIRES = requires
 # TODO: decide whether to use find_packages() instead.  I'm not sure that
 #   find_packages() is available with distutils, for example.
 PACKAGES = [
-    'pystache',
-    'pystache.commands',
+    'pystache_custom_custom',
+    'pystache_custom_custom.commands',
     # The following packages are only for testing.
-    'pystache.tests',
-    'pystache.tests.data',
-    'pystache.tests.data.locator',
-    'pystache.tests.examples',
+    'pystache_custom_custom.tests',
+    'pystache_custom_custom.tests.data',
+    'pystache_custom_custom.tests.data.locator',
+    'pystache_custom_custom.tests.examples',
 ]
 
 
@@ -185,7 +185,7 @@ def main(sys_argv):
     long_description = make_long_description()
     template_files = ['*.mustache', '*.txt']
 
-    setup(name='pystache_custom',
+    setup(name='pystache_custom_custom',
           version=VERSION,
           license='MIT',
           description='Mustache for Python',
@@ -193,19 +193,19 @@ def main(sys_argv):
           author='Chris Wanstrath',
           author_email='chris@ozmm.org',
           maintainer='Chris Jerdonek',
-          url='http://github.com/defunkt/pystache',
+          url='http://github.com/defunkt/pystache_custom_custom',
           install_requires=INSTALL_REQUIRES,
           packages=PACKAGES,
           package_data = {
               # Include template files so tests can be run.
-              'pystache.tests.data': template_files,
-              'pystache.tests.data.locator': template_files,
-              'pystache.tests.examples': template_files,
+              'pystache_custom_custom.tests.data': template_files,
+              'pystache_custom_custom.tests.data.locator': template_files,
+              'pystache_custom_custom.tests.examples': template_files,
           },
           entry_points = {
             'console_scripts': [
-                'pystache=pystache.commands.render:main',
-                'pystache-test=pystache.commands.test:main',
+                'pystache_custom_custom=pystache_custom_custom.commands.render:main',
+                'pystache_custom_custom-test=pystache_custom_custom.commands.test:main',
             ],
           },
           classifiers = CLASSIFIERS,
