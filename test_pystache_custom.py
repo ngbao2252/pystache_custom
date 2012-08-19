@@ -6,7 +6,7 @@ Runs project tests.
 
 This script is a substitute for running--
 
-    python -m pystache_custom_custom.commands.test
+    python -m pystache_custom.commands.test
 
 It is useful in Python 2.4 because the -m flag does not accept subpackages
 in Python 2.4:
