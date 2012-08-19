@@ -185,7 +185,7 @@ def main(sys_argv):
     long_description = make_long_description()
     template_files = ['*.mustache', '*.txt']
 
-    setup(name='pystache',
+    setup(name='pystache_custom',
           version=VERSION,
           license='MIT',
           description='Mustache for Python',
