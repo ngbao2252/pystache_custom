@@ -220,6 +220,38 @@ class RenderEngine(object):
 
         return get_section
 
+    def _make_rendered_get_section(self, name, parsed_template_, template_, delims):
+        def get_section(context):
+            template = template_
+            parsed_template = parsed_template_
+            data = context.get(name)
+
+            if not data:
+                data = []
+            else:
+                try:
+                    iter(data)
+                except TypeError:
+                    data = [data]
+                else:
+                    if isinstance(data, (basestring, dict)):
+                        data = [data]
+
+            parts = []
+            for element in data:
+                if callable(element):
+                    
+                    parts.append(element(parsed_template.render(context)))
+                    continue
+
+                context.push(element)
+                parts.append(parsed_template.render(context))
+                context.pop()
+
+            return unicode(''.join(parts))
+
+        return get_section
+
     def _parse(self, template, delimiters=None):
         """
         Parse the given template, and return a ParsedTemplate instance.

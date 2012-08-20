@@ -41,7 +41,7 @@ def _compile_template_re(delimiters=None):
         (?:
           (?P<change>=) \s* (?P<delims>.+?)   \s* = |
           (?P<raw>{)    \s* (?P<raw_name>.+?) \s* } |
-          (?P<tag>[%(tag_types)s]?)  \s* (?P<tag_key>[\s\S]+?)
+          (?P<tag>[%(tag_types)s]*)  \s* (?P<tag_key>[\s\S]+?)
         )
         \s* %(ctag)s
     """ % {'tag_types': tag_types, 'otag': re.escape(delimiters[0]), 'ctag': re.escape(delimiters[1])}
@@ -208,6 +208,11 @@ class Parser(object):
 
             parsed_section, section_contents, end_index = self._parse_section(template, end_index, tag_key)
             func = engine._make_get_section(tag_key, parsed_section, section_contents, self._delimiters)
+
+        elif tag_type == '##':
+
+            parsed_section, section_contents, end_index = self._parse_section(template, end_index, tag_key)
+            func = engine._make_rendered_get_section(tag_key, parsed_section, section_contents, self._delimiters)
 
         elif tag_type == '^':
 
