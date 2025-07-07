@@ -147,7 +147,7 @@ if py_version < (3, ):
 else:
     extra = {
         # Causes 2to3 to be run during the build step.
-        'use_2to3': True,
+        #'use_2to3': True,
     }
 
 # We use the package simplejson for older Python versions since Python
